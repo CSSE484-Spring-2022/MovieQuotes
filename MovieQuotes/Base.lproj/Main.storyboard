@@ -16,22 +16,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieQuoteCell" textLabel="HN0-zH-YEL" style="IBUITableViewCellStyleDefault" id="P6T-up-u3n">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieQuoteCell" id="P6T-up-u3n" customClass="MovieQuoteTableViewCell" customModule="MovieQuotes" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="54.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="P6T-up-u3n" id="3fc-36-oMv">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="54.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HN0-zH-YEL">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="EgP-RG-NDq">
+                                            <rect key="frame" x="20" y="4" width="374" height="46.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Quote goes here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xj6-5u-IVJ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="21.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie goes here" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8f5-B1-qhy">
+                                                    <rect key="frame" x="0.0" y="25.5" width="374" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="EgP-RG-NDq" secondAttribute="bottom" constant="4" id="18K-er-XYG"/>
+                                        <constraint firstItem="EgP-RG-NDq" firstAttribute="top" secondItem="3fc-36-oMv" secondAttribute="top" constant="4" id="AlB-uJ-ArK"/>
+                                        <constraint firstItem="EgP-RG-NDq" firstAttribute="leading" secondItem="3fc-36-oMv" secondAttribute="leading" constant="20" id="UCp-Sf-ntV"/>
+                                        <constraint firstAttribute="trailing" secondItem="EgP-RG-NDq" secondAttribute="trailing" constant="20" id="lWt-FS-xhu"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="movieLabel" destination="8f5-B1-qhy" id="t6n-c0-BnA"/>
+                                    <outlet property="quoteLabel" destination="Xj6-5u-IVJ" id="juc-GY-tfD"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

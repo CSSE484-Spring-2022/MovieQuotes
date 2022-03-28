@@ -13,6 +13,7 @@
 		383E90D127F1DD9600153598 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 383E90D027F1DD9600153598 /* Assets.xcassets */; };
 		383E90D427F1DD9600153598 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 383E90D227F1DD9600153598 /* LaunchScreen.storyboard */; };
 		383E90DC27F1E02800153598 /* MovieQuotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383E90DB27F1E02800153598 /* MovieQuotesTableViewController.swift */; };
+		383E90DE27F1E58E00153598 /* MovieQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383E90DD27F1E58E00153598 /* MovieQuote.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		383E90D327F1DD9600153598 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		383E90D527F1DD9600153598 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		383E90DB27F1E02800153598 /* MovieQuotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieQuotesTableViewController.swift; sourceTree = "<group>"; };
+		383E90DD27F1E58E00153598 /* MovieQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieQuote.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				383E90D027F1DD9600153598 /* Assets.xcassets */,
 				383E90D227F1DD9600153598 /* LaunchScreen.storyboard */,
 				383E90D527F1DD9600153598 /* Info.plist */,
+				383E90DD27F1E58E00153598 /* MovieQuote.swift */,
 			);
 			path = MovieQuotes;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				383E90C827F1DD9500153598 /* AppDelegate.swift in Sources */,
+				383E90DE27F1E58E00153598 /* MovieQuote.swift in Sources */,
 				383E90DC27F1E02800153598 /* MovieQuotesTableViewController.swift in Sources */,
 				383E90CA27F1DD9500153598 /* SceneDelegate.swift in Sources */,
 			);
