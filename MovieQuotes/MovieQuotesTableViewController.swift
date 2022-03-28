@@ -30,11 +30,37 @@ class MovieQuotesTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+                                                            target: self,
+                                                            action: #selector(showAddQuoteDialog))
+        
         // Hardcode some movie quotes
         let mq1 = MovieQuote(quote: "I'll be back", movie: "The Terminator")
         let mq2 = MovieQuote(quote: "Yo Adrian", movie: "Rocky")
         movieQuotes.append(mq1)
         movieQuotes.append(mq2)
+    }
+    
+    @objc func showAddQuoteDialog() {
+        print("You pressed the add button!")
+        
+        let alertController = UIAlertController(title: "Create a new movie quote",
+                                                message: "",
+                                                preferredStyle: UIAlertController.Style.alert)
+        // Cancel button
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel) { action in
+            print("You pressed cancel")
+        }
+        alertController.addAction(cancelAction)
+        
+        // Positive button
+        let createQuoteAction = UIAlertAction(title: "Create Quote", style: UIAlertAction.Style.default) { action in
+            print("You pressed create quote")
+        }
+        alertController.addAction(createQuoteAction)
+        
+        
+        present(alertController, animated: true)
     }
     
     // MARK: - Table view data source
