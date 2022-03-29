@@ -18,6 +18,8 @@ class MovieQuoteTableViewCell: UITableViewCell {
 class MovieQuotesTableViewController: UITableViewController {
     
     let kMovieQuoteCell = "MovieQuoteCell"
+    let kMovieQuoteDetailSegue = "MovieQuoteDetailSegue"
+    
 //    let names = ["Dave", "Kristy", "McKinley", "Keegan", "Bowen", "Neala"]
     var movieQuotes = [MovieQuote]()
 
@@ -35,10 +37,24 @@ class MovieQuotesTableViewController: UITableViewController {
                                                             action: #selector(showAddQuoteDialog))
         
         // Hardcode some movie quotes
+        
+        
         let mq1 = MovieQuote(quote: "I'll be back", movie: "The Terminator")
         let mq2 = MovieQuote(quote: "Yo Adrian", movie: "Rocky")
+        let mq3 = MovieQuote(quote: "Hello. My name is Inigo Montoya. You killed my father. Prepare to die!",
+                             movie: "The Princess Bride")
         movieQuotes.append(mq1)
         movieQuotes.append(mq2)
+        movieQuotes.append(mq3)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
     }
     
     @objc func showAddQuoteDialog() {
@@ -111,9 +127,12 @@ class MovieQuotesTableViewController: UITableViewController {
 
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == kMovieQuoteDetailSegue {
+            let mqdvc = segue.destination as! MovieQuoteDetailViewController
+            if let indexPath = tableView.indexPathForSelectedRow {
+                mqdvc.movieQuote = movieQuotes[indexPath.row]
+            }
+        }
     }
 }

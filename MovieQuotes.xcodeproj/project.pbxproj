@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3829B90027F3342E000E446B /* MovieQuoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829B8FF27F3342E000E446B /* MovieQuoteDetailViewController.swift */; };
 		383E90C827F1DD9500153598 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383E90C727F1DD9500153598 /* AppDelegate.swift */; };
 		383E90CA27F1DD9500153598 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383E90C927F1DD9500153598 /* SceneDelegate.swift */; };
 		383E90CF27F1DD9500153598 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 383E90CD27F1DD9500153598 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3829B8FF27F3342E000E446B /* MovieQuoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieQuoteDetailViewController.swift; sourceTree = "<group>"; };
 		383E90C427F1DD9500153598 /* MovieQuotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieQuotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		383E90C727F1DD9500153598 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		383E90C927F1DD9500153598 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				383E90C727F1DD9500153598 /* AppDelegate.swift */,
 				383E90C927F1DD9500153598 /* SceneDelegate.swift */,
 				383E90DB27F1E02800153598 /* MovieQuotesTableViewController.swift */,
+				3829B8FF27F3342E000E446B /* MovieQuoteDetailViewController.swift */,
 				383E90CD27F1DD9500153598 /* Main.storyboard */,
 				383E90D027F1DD9600153598 /* Assets.xcassets */,
 				383E90D227F1DD9600153598 /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				383E90C827F1DD9500153598 /* AppDelegate.swift in Sources */,
+				3829B90027F3342E000E446B /* MovieQuoteDetailViewController.swift in Sources */,
 				383E90DE27F1E58E00153598 /* MovieQuote.swift in Sources */,
 				383E90DC27F1E02800153598 /* MovieQuotesTableViewController.swift in Sources */,
 				383E90CA27F1DD9500153598 /* SceneDelegate.swift in Sources */,
