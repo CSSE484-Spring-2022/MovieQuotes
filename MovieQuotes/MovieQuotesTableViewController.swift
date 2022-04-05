@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class MovieQuoteTableViewCell: UITableViewCell {
     
@@ -19,6 +20,7 @@ class MovieQuotesTableViewController: UITableViewController {
     
     let kMovieQuoteCell = "MovieQuoteCell"
     let kMovieQuoteDetailSegue = "MovieQuoteDetailSegue"
+    var movieQuotesListenerRegistration: ListenerRegistration?
     
 //    let names = ["Dave", "Kristy", "McKinley", "Keegan", "Bowen", "Neala"]
 //    var movieQuotes = [MovieQuote]()
@@ -48,7 +50,7 @@ class MovieQuotesTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        MovieQuotesCollectionManager.shared.startListening {
+        movieQuotesListenerRegistration = MovieQuotesCollectionManager.shared.startListening {
 //            print("The movie quotes were updated")
 //            for mq in MovieQuotesCollectionManager.shared.latestMovieQuotes {
 //                print("\(mq.quote) in \(mq.movie)")
@@ -61,7 +63,7 @@ class MovieQuotesTableViewController: UITableViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        MovieQuotesCollectionManager.shared.stopListening()
+        MovieQuotesCollectionManager.shared.stopListening(movieQuotesListenerRegistration)
     }
     
     @objc func showAddQuoteDialog() {
@@ -150,11 +152,8 @@ class MovieQuotesTableViewController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
 //                mqdvc.movieQuote = movieQuotes[indexPath.row]
                 
-                // TODO: Inform the detail view about the MovieQuote
-                
-                // Note: For now this WILL CRASH!!!!!!!!!
-                
-                
+                let mq = MovieQuotesCollectionManager.shared.latestMovieQuotes[indexPath.row]
+                mqdvc.movieQuoteDocumentId = mq.documentId
             }
         }
     }
