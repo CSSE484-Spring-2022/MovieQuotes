@@ -12,7 +12,7 @@ class MovieQuoteDetailViewController: UIViewController {
     @IBOutlet weak var quoteLabel: UILabel!
     @IBOutlet weak var movieLabel: UILabel!
     
-    var movieQuote: MovieQuote!
+//    var movieQuote: MovieQuote!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +32,10 @@ class MovieQuoteDetailViewController: UIViewController {
 //    }
     
     func updateView() {
-        quoteLabel.text = movieQuote.quote
-        movieLabel.text = movieQuote.movie
+//        quoteLabel.text = movieQuote.quote
+//        movieLabel.text = movieQuote.movie
+        
+        // TODO: Update the view using the manager's data
     }
     
     
@@ -44,11 +46,15 @@ class MovieQuoteDetailViewController: UIViewController {
         
         alertController.addTextField { textField in
             textField.placeholder = "Quote"
-            textField.text = self.movieQuote.quote
+//            textField.text = self.movieQuote.quote
+            
+            // TODO: Put in the quote from the manager's data
         }
         alertController.addTextField { textField in
             textField.placeholder = "Movie"
-            textField.text = self.movieQuote.movie
+//            textField.text = self.movieQuote.movie
+            
+            // TODO: Put in the movie from the manager's data
         }
         
         // Cancel button
@@ -64,9 +70,11 @@ class MovieQuoteDetailViewController: UIViewController {
             print("Quote: \(quoteTextField.text!)")
             print("Movie: \(movieTextField.text!)")
             
-            self.movieQuote.quote = quoteTextField.text!
-            self.movieQuote.movie = movieTextField.text!
-            self.updateView()
+//            self.movieQuote.quote = quoteTextField.text!
+//            self.movieQuote.movie = movieTextField.text!
+//            self.updateView()
+            
+            // TODO: Implement Update
         }
         alertController.addAction(editAction)
         present(alertController, animated: true)
