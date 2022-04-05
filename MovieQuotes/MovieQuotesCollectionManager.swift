@@ -42,10 +42,27 @@ class MovieQuotesCollectionManager {
     }
     
     func add(_ mq: MovieQuote) {
-        
+        var ref: DocumentReference? = nil
+        ref = _collectionRef.addDocument(data: [
+            kMovieQuoteQuote: mq.quote,
+            kMovieQuoteMovie: mq.movie,
+            kMovieQuoteLastTouched: Timestamp.init()
+        ]) { err in
+            if let err = err {
+                print("Error adding document \(err)")
+            } else {
+                print("Document added with id \(ref!.documentID)")
+            }
+        }
     }
     
     func delete(_ documentId: String) {
-        
+        _collectionRef.document(documentId).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
+            }
+        }
     }
 }

@@ -95,7 +95,6 @@ class MovieQuotesTableViewController: UITableViewController {
 //            self.movieQuotes.insert(mq, at: 0)
 //            self.tableView.reloadData()
             
-            // TODO: Figure out if this actually works!
             MovieQuotesCollectionManager.shared.add(mq)
         }
         alertController.addAction(createQuoteAction)
@@ -137,7 +136,8 @@ class MovieQuotesTableViewController: UITableViewController {
 //            movieQuotes.remove(at: indexPath.row)
 //            tableView.reloadData()
             
-            // TODO: Implement delete
+            let mqToDelete = MovieQuotesCollectionManager.shared.latestMovieQuotes[indexPath.row]
+            MovieQuotesCollectionManager.shared.delete(mqToDelete.documentId!)
         }
     }
 
