@@ -9,11 +9,8 @@ import UIKit
 import Firebase
 
 class MovieQuoteTableViewCell: UITableViewCell {
-    
     @IBOutlet weak var quoteLabel: UILabel!
-    
     @IBOutlet weak var movieLabel: UILabel!
-    
 }
 
 class MovieQuotesTableViewController: UITableViewController {
@@ -57,6 +54,14 @@ class MovieQuotesTableViewController: UITableViewController {
 //            }
             self.tableView.reloadData()
             print("Update the table due to new data!")
+        }
+        
+        // TODO: Eventually use real login, but for now use Guest Mode / Anonymous login
+        if (AuthManager.shared.isSignedIn) {
+            print("User is already signed in")
+        } else {
+            print("No user. so signing in anonymously")
+            AuthManager.shared.signInAnonymously()
         }
         
     }
