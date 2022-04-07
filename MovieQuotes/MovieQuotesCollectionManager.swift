@@ -47,7 +47,8 @@ class MovieQuotesCollectionManager {
         ref = _collectionRef.addDocument(data: [
             kMovieQuoteQuote: mq.quote,
             kMovieQuoteMovie: mq.movie,
-            kMovieQuoteLastTouched: Timestamp.init()
+            kMovieQuoteLastTouched: Timestamp.init(),
+            kMovieQuoteAuthorUid: AuthManager.shared.currentUser!.uid
         ]) { err in
             if let err = err {
                 print("Error adding document \(err)")

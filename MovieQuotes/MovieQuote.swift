@@ -12,6 +12,7 @@ class MovieQuote {
     var quote: String
     var movie: String
     var documentId: String?
+    var authorUid: String?
     
     init(quote: String, movie: String) {
         self.quote = quote
@@ -23,5 +24,6 @@ class MovieQuote {
         let data = documentSnapshot.data()
         self.quote = data?[kMovieQuoteQuote] as? String ?? ""
         self.movie = data?[kMovieQuoteMovie] as? String ?? ""
+        self.authorUid = data?[kMovieQuoteAuthorUid] as? String ?? ""
     }
 }

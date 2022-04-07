@@ -137,6 +137,11 @@ class MovieQuotesTableViewController: UITableViewController {
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        let mq = MovieQuotesCollectionManager.shared.latestMovieQuotes[indexPath.row]
+        return AuthManager.shared.currentUser?.uid == mq.authorUid
+    }
 
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
