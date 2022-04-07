@@ -20,20 +20,28 @@ class MovieQuoteDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit,
-                                                            target: self,
-                                                            action: #selector(showEditQuoteDialog))
         
         //        print("TODO: Lister for the document with the id \(movieQuoteDocumentId)")
         
         updateView()
     }
     
+    func showOrHideEditButton() {
+        if (AuthManager.shared.currentUser?.uid == MovieQuoteDocumentManager.shared.latestMovieQuote?.authorUid) {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit,
+                                                                target: self,
+                                                                action: #selector(showEditQuoteDialog))
+        } else {
+            print("This is not your quote, don't allow edit")
+            navigationItem.rightBarButtonItem = nil
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         movieQuoteListenerRegistration = MovieQuoteDocumentManager.shared.startListening(for: movieQuoteDocumentId!) {
-            print("TODO: Update the view with the new data")
             self.updateView()
+            self.showOrHideEditButton()
         }
     }
     

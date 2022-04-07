@@ -53,7 +53,6 @@ class MovieQuotesTableViewController: UITableViewController {
 //                print("\(mq.quote) in \(mq.movie)")
 //            }
             self.tableView.reloadData()
-            print("Update the table due to new data!")
         }
         
         // TODO: Eventually use real login, but for now use Guest Mode / Anonymous login

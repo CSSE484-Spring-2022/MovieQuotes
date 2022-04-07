@@ -37,7 +37,6 @@ class MovieQuoteDocumentManager {
     }
     
     func stopListening(_ listenerRegistration: ListenerRegistration?) {
-        print("Removing the listener")
         listenerRegistration?.remove()
     }
     
