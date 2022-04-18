@@ -59,13 +59,17 @@ class MovieQuotesTableViewController: UITableViewController {
         startListeningForMovieQuotes()
         
         // TODO: Eventually use real login, but for now use Guest Mode / Anonymous login
-        if (AuthManager.shared.isSignedIn) {
-            print("User is already signed in")
-        } else {
-            print("No user. so signing in anonymously")
-            AuthManager.shared.signInAnonymously()
+//        if (AuthManager.shared.isSignedIn) {
+//            print("User is already signed in")
+//        } else {
+//            print("No user. so signing in anonymously")
+//            AuthManager.shared.signInAnonymously()
+//        }
+
+        if (!AuthManager.shared.isSignedIn) {
+            print("Ooops!  You got to this page without a user!")
+            navigationController?.popViewController(animated: true)
         }
-        
     }
     
     override func viewDidDisappear(_ animated: Bool) {

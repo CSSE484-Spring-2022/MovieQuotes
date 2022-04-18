@@ -15,6 +15,7 @@
 		383E90D427F1DD9600153598 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 383E90D227F1DD9600153598 /* LaunchScreen.storyboard */; };
 		383E90DC27F1E02800153598 /* MovieQuotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383E90DB27F1E02800153598 /* MovieQuotesTableViewController.swift */; };
 		383E90DE27F1E58E00153598 /* MovieQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383E90DD27F1E58E00153598 /* MovieQuote.swift */; };
+		385CED5A280D9D0C00AD57D4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385CED59280D9D0C00AD57D4 /* LoginViewController.swift */; };
 		386F33A927F5D2A4003A1C70 /* MovieQuotesCollectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F33A827F5D2A4003A1C70 /* MovieQuotesCollectionManager.swift */; };
 		386F33AB27F5D3B0003A1C70 /* MovieQuoteDocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F33AA27F5D3B0003A1C70 /* MovieQuoteDocumentManager.swift */; };
 		386F33AD27F5D4A2003A1C70 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F33AC27F5D4A2003A1C70 /* Constants.swift */; };
@@ -36,6 +37,7 @@
 		383E90D527F1DD9600153598 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		383E90DB27F1E02800153598 /* MovieQuotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieQuotesTableViewController.swift; sourceTree = "<group>"; };
 		383E90DD27F1E58E00153598 /* MovieQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieQuote.swift; sourceTree = "<group>"; };
+		385CED59280D9D0C00AD57D4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		386F33A827F5D2A4003A1C70 /* MovieQuotesCollectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieQuotesCollectionManager.swift; sourceTree = "<group>"; };
 		386F33AA27F5D3B0003A1C70 /* MovieQuoteDocumentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieQuoteDocumentManager.swift; sourceTree = "<group>"; };
 		386F33AC27F5D4A2003A1C70 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				386F33AA27F5D3B0003A1C70 /* MovieQuoteDocumentManager.swift */,
 				386F33AC27F5D4A2003A1C70 /* Constants.swift */,
 				38AC1D5B27FF10A1009FCDC7 /* AuthManager.swift */,
+				385CED59280D9D0C00AD57D4 /* LoginViewController.swift */,
 			);
 			path = MovieQuotes;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 				383E90DC27F1E02800153598 /* MovieQuotesTableViewController.swift in Sources */,
 				383E90CA27F1DD9500153598 /* SceneDelegate.swift in Sources */,
 				386F33AB27F5D3B0003A1C70 /* MovieQuoteDocumentManager.swift in Sources */,
+				385CED5A280D9D0C00AD57D4 /* LoginViewController.swift in Sources */,
 				386F33AD27F5D4A2003A1C70 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
