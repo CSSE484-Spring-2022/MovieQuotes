@@ -39,9 +39,9 @@ class AuthManager {
     }
     
     func removeObserver(_ authDidChangeHandle: AuthStateDidChangeListenerHandle?) {
-//        if authDidChangeHandle != nil {
-//            Auth.auth().removeStateDidChangeListener(authDidChangeHandle!)
-//        }
+        //        if authDidChangeHandle != nil {
+        //            Auth.auth().removeStateDidChangeListener(authDidChangeHandle!)
+        //        }
         
         if let authHandle = authDidChangeHandle {
             Auth.auth().removeStateDidChangeListener(authHandle)
@@ -75,6 +75,14 @@ class AuthManager {
                 return
             }
             print("Anonymous sign in complete.")
+        }
+    }
+    
+    func signOut() {
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print("Sign out failed: \(error)")
         }
     }
 }

@@ -20,8 +20,12 @@ class MovieQuotesCollectionManager {
     
     var latestMovieQuotes = [MovieQuote]()
     
-    func startListening(changeListener: @escaping (() -> Void)) -> ListenerRegistration {
-        let query = _collectionRef.order(by: kMovieQuoteLastTouched, descending: true).limit(to: 50)
+    func startListening(filterByAuthor authorFilter: String?, changeListener: @escaping (() -> Void)) -> ListenerRegistration {
+        var query = _collectionRef.order(by: kMovieQuoteLastTouched, descending: true).limit(to: 50)
+        if let authorFilter = authorFilter {
+            print("TODO: filter by this author \(authorFilter)")
+            query = query.whereField(kMovieQuoteAuthorUid, isEqualTo: authorFilter)
+        }
         
         return query.addSnapshotListener { querySnapshot, error in
             guard let documents = querySnapshot?.documents else {

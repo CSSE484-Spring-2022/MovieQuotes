@@ -19,6 +19,8 @@ class MovieQuotesTableViewController: UITableViewController {
     let kMovieQuoteDetailSegue = "MovieQuoteDetailSegue"
     var movieQuotesListenerRegistration: ListenerRegistration?
     
+    var isShowingAllQuotes = true
+    
 //    let names = ["Dave", "Kristy", "McKinley", "Keegan", "Bowen", "Neala"]
 //    var movieQuotes = [MovieQuote]()
 
@@ -31,9 +33,16 @@ class MovieQuotesTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+//                                                            target: self,
+//                                                            action: #selector(showAddQuoteDialog))
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "☰",
+                                                            style: .plain,
                                                             target: self,
-                                                            action: #selector(showAddQuoteDialog))
+                                                            action: #selector(showMenu))
+
+        
         
         // Hardcode some movie quotes
 //        let mq1 = MovieQuote(quote: "I'll be back", movie: "The Terminator")
@@ -47,13 +56,7 @@ class MovieQuotesTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        movieQuotesListenerRegistration = MovieQuotesCollectionManager.shared.startListening {
-//            print("The movie quotes were updated")
-//            for mq in MovieQuotesCollectionManager.shared.latestMovieQuotes {
-//                print("\(mq.quote) in \(mq.movie)")
-//            }
-            self.tableView.reloadData()
-        }
+        startListeningForMovieQuotes()
         
         // TODO: Eventually use real login, but for now use Guest Mode / Anonymous login
         if (AuthManager.shared.isSignedIn) {
@@ -67,10 +70,62 @@ class MovieQuotesTableViewController: UITableViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        stopListeningForMovieQuotes()
+    }
+    
+    func startListeningForMovieQuotes() {
+        stopListeningForMovieQuotes()  // This will do nothing the first time, but be useful later.
+        movieQuotesListenerRegistration = MovieQuotesCollectionManager.shared.startListening(
+            filterByAuthor: isShowingAllQuotes ? nil : AuthManager.shared.currentUser?.uid)
+        {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func stopListeningForMovieQuotes() {
         MovieQuotesCollectionManager.shared.stopListening(movieQuotesListenerRegistration)
     }
     
-    @objc func showAddQuoteDialog() {
+    @objc func showMenu() {
+        let alertController = UIAlertController(title: nil,
+                                                message: nil,
+                                                preferredStyle: UIAlertController.Style.actionSheet)
+        
+        
+        // Show all quotes / show only my quotes button
+        let showOnlyMyQuotesAction = UIAlertAction(title: isShowingAllQuotes ? "Show only my quotes" : "Show all quotes", style: UIAlertAction.Style.default) { action in
+            print("You pressed show only my quotes")
+            self.isShowingAllQuotes = !self.isShowingAllQuotes
+            self.startListeningForMovieQuotes()
+        }
+        alertController.addAction(showOnlyMyQuotesAction)
+        
+        
+        // Show add quote dialog
+        let showAddQuoteDialogAction = UIAlertAction(title: "Add a quote", style: UIAlertAction.Style.default) { action in
+//            print("You pressed add a quote")
+            self.showAddQuoteDialog()
+        }
+        alertController.addAction(showAddQuoteDialogAction)
+        
+        
+        // Sign Out
+        let signOutAction = UIAlertAction(title: "Sign Out", style: UIAlertAction.Style.default) { action in
+//            print("You pressed sign out")
+            AuthManager.shared.signOut()
+        }
+        alertController.addAction(signOutAction)
+        
+        // Cancel button
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel) { action in
+            print("You pressed cancel")
+        }
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true)
+    }
+    
+    func showAddQuoteDialog() {
         let alertController = UIAlertController(title: "Create a new movie quote",
                                                 message: "",
                                                 preferredStyle: UIAlertController.Style.alert)
