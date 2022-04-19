@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import GoogleSignIn
 
 class AuthManager {
     
@@ -87,6 +88,10 @@ class AuthManager {
             // User is signed in using Firebase!
             print("The user is now actually signed in using the Rosefire token")
         }
+    }
+    
+    func signInWithGoogleCredential(_ googleCredential: AuthCredential) {
+        Auth.auth().signIn(with: googleCredential)
     }
     
     func signOut() {
