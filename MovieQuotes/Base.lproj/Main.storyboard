@@ -195,13 +195,28 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xyr-TX-nlc">
+                                <rect key="frame" x="87" y="290" width="240" height="41"/>
+                                <color key="backgroundColor" red="0.50196078431372548" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="0p5-rK-ZVa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Rosefire"/>
+                                <connections>
+                                    <action selector="pressedRosefire:" destination="T0o-Ct-lx0" eventType="touchUpInside" id="DH7-mJ-mDa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qmP-vi-iau"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
                             <constraint firstItem="us0-tn-eWp" firstAttribute="leading" secondItem="qmP-vi-iau" secondAttribute="leading" constant="20" id="1Ol-Gs-4nx"/>
+                            <constraint firstItem="xyr-TX-nlc" firstAttribute="top" secondItem="us0-tn-eWp" secondAttribute="bottom" constant="80" id="8KD-GJ-fl1"/>
                             <constraint firstItem="us0-tn-eWp" firstAttribute="top" secondItem="Phf-t9-NR3" secondAttribute="top" constant="50" id="eaQ-dV-1KS"/>
                             <constraint firstItem="qmP-vi-iau" firstAttribute="trailing" secondItem="us0-tn-eWp" secondAttribute="trailing" constant="20" id="eqz-Mb-WVa"/>
+                            <constraint firstItem="xyr-TX-nlc" firstAttribute="centerX" secondItem="qmP-vi-iau" secondAttribute="centerX" id="qoS-Do-R0I"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="x4X-Ra-UgK"/>

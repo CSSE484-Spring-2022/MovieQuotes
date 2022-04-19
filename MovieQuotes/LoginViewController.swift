@@ -54,6 +54,26 @@ class LoginViewController: UIViewController {
         AuthManager.shared.loginExistingEmailPasswordUser(email: email, password: password)
     }
     
+    @IBAction func pressedRosefire(_ sender: Any) {
+        print("Using Rosefire")
+        
+        Rosefire.sharedDelegate().uiDelegate = self // This should be your view controller
+        Rosefire.sharedDelegate().signIn(registryToken: kRosefireRegistryToken) { (err, result) in
+          if let err = err {
+            print("Rosefire sign in error! \(err)")
+            return
+          }
+//          print("Result = \(result!.token!)")
+//          print("Result = \(result!.username!)")
+          print("Rosefire worked.  Name = \(result!.name!)")
+//          print("Result = \(result!.email!)")
+//          print("Result = \(result!.group!)")
+            
+            AuthManager.shared.signInWithRosefireToken(result!.token)
+        }
+
+        
+    }
     
     
 
