@@ -32,16 +32,16 @@ class MovieQuotesTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        navigationItem.leftBarButtonItem = editButtonItem
+//        navigationItem.leftBarButtonItem = editButtonItem
         
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
-//                                                            target: self,
-//                                                            action: #selector(showAddQuoteDialog))
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "☰",
-                                                            style: .plain,
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                             target: self,
-                                                            action: #selector(showMenu))
+                                                            action: #selector(showAddQuoteDialog))
+        
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "☰",
+//                                                            style: .plain,
+//                                                            target: self,
+//                                                            action: #selector(showMenu))
 
         
         
@@ -97,46 +97,46 @@ class MovieQuotesTableViewController: UITableViewController {
         MovieQuotesCollectionManager.shared.stopListening(movieQuotesListenerRegistration)
     }
     
-    @objc func showMenu() {
-        let alertController = UIAlertController(title: nil,
-                                                message: nil,
-                                                preferredStyle: UIAlertController.Style.actionSheet)
-        
-        
-        // Show all quotes / show only my quotes button
-        let showOnlyMyQuotesAction = UIAlertAction(title: isShowingAllQuotes ? "Show only my quotes" : "Show all quotes", style: UIAlertAction.Style.default) { action in
-            print("You pressed show only my quotes")
-            self.isShowingAllQuotes = !self.isShowingAllQuotes
-            self.startListeningForMovieQuotes()
-        }
-        alertController.addAction(showOnlyMyQuotesAction)
-        
-        
-        // Show add quote dialog
-        let showAddQuoteDialogAction = UIAlertAction(title: "Add a quote", style: UIAlertAction.Style.default) { action in
-//            print("You pressed add a quote")
-            self.showAddQuoteDialog()
-        }
-        alertController.addAction(showAddQuoteDialogAction)
-        
-        
-        // Sign Out
-        let signOutAction = UIAlertAction(title: "Sign Out", style: UIAlertAction.Style.default) { action in
-//            print("You pressed sign out")
-            AuthManager.shared.signOut()
-        }
-        alertController.addAction(signOutAction)
-        
-        // Cancel button
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel) { action in
-            print("You pressed cancel")
-        }
-        alertController.addAction(cancelAction)
-        
-        present(alertController, animated: true)
-    }
+//    @objc func showMenu() {
+//        let alertController = UIAlertController(title: nil,
+//                                                message: nil,
+//                                                preferredStyle: UIAlertController.Style.actionSheet)
+//
+//
+//        // Show all quotes / show only my quotes button
+//        let showOnlyMyQuotesAction = UIAlertAction(title: isShowingAllQuotes ? "Show only my quotes" : "Show all quotes", style: UIAlertAction.Style.default) { action in
+//            print("You pressed show only my quotes")
+//            self.isShowingAllQuotes = !self.isShowingAllQuotes
+//            self.startListeningForMovieQuotes()
+//        }
+//        alertController.addAction(showOnlyMyQuotesAction)
+//
+//
+//        // Show add quote dialog
+//        let showAddQuoteDialogAction = UIAlertAction(title: "Add a quote", style: UIAlertAction.Style.default) { action in
+////            print("You pressed add a quote")
+//            self.showAddQuoteDialog()
+//        }
+//        alertController.addAction(showAddQuoteDialogAction)
+//
+//
+//        // Sign Out
+//        let signOutAction = UIAlertAction(title: "Sign Out", style: UIAlertAction.Style.default) { action in
+////            print("You pressed sign out")
+//            AuthManager.shared.signOut()
+//        }
+//        alertController.addAction(signOutAction)
+//
+//        // Cancel button
+//        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel) { action in
+//            print("You pressed cancel")
+//        }
+//        alertController.addAction(cancelAction)
+//
+//        present(alertController, animated: true)
+//    }
     
-    func showAddQuoteDialog() {
+    @objc func showAddQuoteDialog() {
         let alertController = UIAlertController(title: "Create a new movie quote",
                                                 message: "",
                                                 preferredStyle: UIAlertController.Style.alert)

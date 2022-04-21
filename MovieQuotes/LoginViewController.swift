@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var googleSignInButton: GIDSignInButton!
     var loginHandle: AuthStateDidChangeListenerHandle?
     
     override func viewDidLoad() {
@@ -22,6 +23,8 @@ class LoginViewController: UIViewController {
         
         emailTextField.placeholder = "Email"
         passwordTextField.placeholder = "Password"
+        
+        googleSignInButton.style = GIDSignInButtonStyle.wide
     }
     
     override func viewWillAppear(_ animated: Bool) {
