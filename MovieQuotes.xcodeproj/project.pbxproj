@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3821C7DF2816C834006ED83E /* UserDocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821C7DE2816C834006ED83E /* UserDocumentManager.swift */; };
+		3821C7E12816D358006ED83E /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821C7E02816D358006ED83E /* ImageUtils.swift */; };
 		3829B90027F3342E000E446B /* MovieQuoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829B8FF27F3342E000E446B /* MovieQuoteDetailViewController.swift */; };
 		383E90C827F1DD9500153598 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383E90C727F1DD9500153598 /* AppDelegate.swift */; };
 		383E90CA27F1DD9500153598 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383E90C927F1DD9500153598 /* SceneDelegate.swift */; };
@@ -32,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3821C7DE2816C834006ED83E /* UserDocumentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDocumentManager.swift; sourceTree = "<group>"; };
+		3821C7E02816D358006ED83E /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 		3829B8FF27F3342E000E446B /* MovieQuoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieQuoteDetailViewController.swift; sourceTree = "<group>"; };
 		383E90C427F1DD9500153598 /* MovieQuotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieQuotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		383E90C727F1DD9500153598 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 				385FB731280EE313002F0D7C /* Rosefire.swift */,
 				3857BBAB281184150071A375 /* SideMenuViewController.swift */,
 				3857BBAD281190E30071A375 /* ProfilePageViewController.swift */,
+				3821C7DE2816C834006ED83E /* UserDocumentManager.swift */,
+				3821C7E02816D358006ED83E /* ImageUtils.swift */,
 			);
 			path = MovieQuotes;
 			sourceTree = "<group>";
@@ -202,7 +208,9 @@
 				386F33A927F5D2A4003A1C70 /* MovieQuotesCollectionManager.swift in Sources */,
 				383E90DC27F1E02800153598 /* MovieQuotesTableViewController.swift in Sources */,
 				385FB732280EE313002F0D7C /* Rosefire.swift in Sources */,
+				3821C7E12816D358006ED83E /* ImageUtils.swift in Sources */,
 				383E90CA27F1DD9500153598 /* SceneDelegate.swift in Sources */,
+				3821C7DF2816C834006ED83E /* UserDocumentManager.swift in Sources */,
 				3857BBAE281190E30071A375 /* ProfilePageViewController.swift in Sources */,
 				386F33AB27F5D3B0003A1C70 /* MovieQuoteDocumentManager.swift in Sources */,
 				385CED5A280D9D0C00AD57D4 /* LoginViewController.swift in Sources */,

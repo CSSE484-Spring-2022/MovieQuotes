@@ -254,6 +254,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wpX-zF-rAZ"/>
+                    <connections>
+                        <outlet property="displayNameTextField" destination="yC6-o1-jOq" id="NRe-Ts-Zkc"/>
+                        <outlet property="profilePhotoImageView" destination="B2A-dc-YOx" id="9I1-KG-jkg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hjx-eg-fsg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

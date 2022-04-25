@@ -15,7 +15,9 @@ let kMovieQuoteLastTouched = "lastTouched"
 let kMovieQuoteAuthorUid = "authorUid"
 
 // Firestore - User documents
-
+let kUsersCollectionPath = "Users"
+let kUserName = "name"
+let kUserPhotoUrl = "photoUrl"
 
 
 // Segues
