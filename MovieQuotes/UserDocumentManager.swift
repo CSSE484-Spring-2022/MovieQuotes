@@ -25,6 +25,7 @@ class UserDocumentManager {
         let query = _collectionRef.document(documentId)
         
         return query.addSnapshotListener { documentSnapshot, error in
+            self._latestDocument = nil
             guard let document = documentSnapshot else {
               print("Error fetching document: \(error!)")
               return
