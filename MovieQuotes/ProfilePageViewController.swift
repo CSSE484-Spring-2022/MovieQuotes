@@ -64,7 +64,9 @@ extension ProfilePageViewController: UIImagePickerControllerDelegate, UINavigati
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage? {
             
-            profilePhotoImageView.image = image  // Quick test to see if Step #1 is done!
+//            profilePhotoImageView.image = image  // Quick test to see if Step #1 is done!
+            StorageManager.shared.uploadProfilePhoto(uid: AuthManager.shared.currentUser!.uid,
+                                                     image: image)
             
         }
         picker.dismiss(animated: true)
