@@ -20,6 +20,24 @@ class UserDocumentManager {
     }
     
     // TODO: Implement Create!
+    func addNewUserMaybe(uid: String, name: String?, photoUrl: String?) {
+        // *Get* the User Document for this uid
+        // If it already exists do nothing! (2nd or great signin)
+        // There is NOT User document, make it using the name and photoUrl
+        
+        let docRef = _collectionRef.document(uid)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                print("Document exist.  Do nothing.  Here is the data: \(document.data()!)")
+            } else {
+                print("Document does not exist.  Create this user!")
+                docRef.setData([
+                    kUserName: name ?? "",
+                    kUserPhotoUrl: photoUrl ?? ""
+                ])
+            }
+        }
+    }
     
     func startListening(for documentId: String, changeListener: @escaping (() -> Void)) -> ListenerRegistration {
         let query = _collectionRef.document(documentId)
