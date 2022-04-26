@@ -27,10 +27,46 @@ class ProfilePageViewController: UIViewController {
         UserDocumentManager.shared.stopListening(userListenerRegistration)
     }
     
+    @IBAction func displayNameDidChange(_ sender: Any) {
+//        print("TODO: Update name to \(displayNameTextField.text)")
+        UserDocumentManager.shared.updateName(name: displayNameTextField.text!)
+    }
+    
+    
+    @IBAction func pressedChangeProfilePhoto(_ sender: Any) {
+        print("TODO: Change photo")
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePicker.sourceType = .camera
+        } else {
+            imagePicker.sourceType = .photoLibrary
+        }
+        present(imagePicker, animated: true)
+    }
+    
+    
     func updateView() {
         displayNameTextField.text = UserDocumentManager.shared.name
         if !UserDocumentManager.shared.photoUrl.isEmpty {
             ImageUtils.load(imageView: profilePhotoImageView, from: UserDocumentManager.shared.photoUrl)
         }
+    }
+}
+
+
+
+extension ProfilePageViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage? {
+            
+            profilePhotoImageView.image = image  // Quick test to see if Step #1 is done!
+            
+        }
+        picker.dismiss(animated: true)
     }
 }
